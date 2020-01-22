@@ -14,7 +14,7 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-//Helper function that returns a password of given length, with correct array elements
+//Helper function that returns a password of given length and of a given array
 function passwordHelp(passLen, array) {
   var tempPassword = '';
   for (let i = 0; i < passLen; i++) {
