@@ -23,7 +23,7 @@ function passwordHelp(passLen, array) {
   return tempPassword;
 }
 
-function generatePassword(){
+function generatePassword() {
   var finalPassword = '';
   var condCriteria = true;
   var condLength = true;
@@ -31,24 +31,29 @@ function generatePassword(){
   //Arrays containing characters for password criteria
   var lowercaseArray = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
   var uppercaseArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  var specialCharArr = [`!`, `"`, `#`, `$`, `&`, `'`, `*`, `+`,`,`, `-`, `.`, `/`, `:`, `;`, `<`, `=`, `>`, `?`, `@`, `[`, ` \\ `, `]`, `^`, `_`, '`', `,`, `|`, `}`, `~`];
+  var specialCharArr = [`!`, `"`, `#`, `$`, `&`, `'`, `*`, `+`, `,`, `-`, `.`, `/`, `:`, `;`, `<`, `=`, `>`, `?`, `@`, `[`, ` \\ `, `]`, `^`, `_`, '`', `,`, `|`, `}`, `~`];
+  var numericArr = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
 
-  var passwordLength = prompt('How long would like the password to be? (min lenght of 8, max length of 128): ').toLowerCase();
+  var passwordLength = prompt('How long would like the password to be? (min length of 8, max length of 128): ').toLowerCase();
 
   //Make sure password length is correct and won't continue unless its correct
-  while(condLength){
+  while (condLength) {
 
 
-    if (passwordLength >= 8 && passwordLength <= 128){
+    if (passwordLength >= 8 && passwordLength <= 128) {
 
       //Make sure correct criteria is selected in correct syntax
-      while(condCriteria){
+      while (condCriteria) {
 
-        var passwordCriteria = prompt('What criteria would you like for your password? (lowercase, uppercase, and/or special characters) *seperate words with single space, in correct order*: ').toLowerCase();
+        var criteriaLower = confirm('Would you like lowercase characters in your password? Press OK to confirm.');
+        var criteriaUpper = confirm('Would you like uppercase characters in your password? Press OK to confirm.');
+        var criteriaNumeric = confirm('Would you like numeric characters in your password? Press OK to confirm.');
+        var criteriaSpecial = confirm('Would you like special characters in your password? Press OK to confirm.');
+
 
         // Depending on selected criteria, construct password with helper function
-       switch (passwordCriteria){
+        switch (passwordCriteria) {
           case 'lowercase uppercase special characters':
             var arr = lowercaseArray.concat(uppercaseArray.concat(specialCharArr));
             condCriteria = false;
@@ -89,7 +94,7 @@ function generatePassword(){
             break;
 
           default:
-           passwordCriteria = prompt('Invalid input, please select one or more from this list: (lowercase, uppercase, and/or special characters) *seperate words with single space, in correct order*: ').toLowerCase();
+            passwordCriteria = prompt('Invalid input, please select one or more from this list: (lowercase, uppercase, and/or special characters) *seperate words with single space, in correct order*: ').toLowerCase();
             break;
 
         }
@@ -98,7 +103,7 @@ function generatePassword(){
       }
       // prompt if user input is invalid
     } else {
-     passwordLength =  prompt('Password length does not meet criteria, please choose a number between 8 and 128, inclusive: ').toLowerCase();
-   }
+      passwordLength = prompt('Password length does not meet criteria, please choose a number between 8 and 128, inclusive: ').toLowerCase();
+    }
   }
 }
