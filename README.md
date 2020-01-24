@@ -8,10 +8,11 @@
   - Choose password criteria:
     - lowercase
     - uppercase
+    - numbers
     - special characters
-  - Can use any single criteria, or a combination of all three
-  - Make sure order typed is the same as it is listed above, otherwise it will continue to prompt for criteria
-  - Use a single space in between criteria, if choosing more than one
+  - Can use any single criteria, or a combination of all four
+  - Press OK on prompts to have selection included in password
+  - If no prompt is selected, user will be continuously prompted until at least one is
   - Generator will display a password with the chosen length and criteria in the display box, that can be copied
 
   
